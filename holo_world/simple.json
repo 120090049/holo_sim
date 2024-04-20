@@ -1,0 +1,90 @@
+{
+    "name": "Hovering",
+    "world": "SimpleUnderwater",
+    "package_name": "Ocean",
+    "main_agent": "auv0",
+    "ticks_per_sec": 200,
+    "frames_per_sec": true,
+    "octree_min": 0.02,
+    "octree_max": 5.0,
+    "agents":[
+        {
+            "agent_name": "auv0",
+            "agent_type": "HoveringAUV",
+            "sensors": [
+                {
+                    "sensor_type": "PoseSensor",
+                    "socket": "IMUSocket"
+                },
+                {
+                    "sensor_type": "VelocitySensor",
+                    "socket": "IMUSocket"
+                },
+                {
+                    "sensor_type": "IMUSensor",
+                    "socket": "IMUSocket",
+                    "Hz": 200,
+                    "configuration": {
+                    }
+                },
+                {
+                    "sensor_type": "GPSSensor",
+                    "socket": "IMUSocket",
+                    "Hz": 5,
+                    "configuration":{
+                        "Sigma": 0.5,
+                        "Depth": 1,
+                        "DepthSigma": 0.25
+                    }
+                },
+                {
+                    "sensor_type": "DVLSensor",
+                    "socket": "DVLSocket",
+                    "Hz": 20,
+                    "configuration": {
+                        "Elevation": 22.5,
+                        "VelSigma": 0.02626,
+                        "ReturnRange": true,
+                        "MaxRange": 50,
+                        "RangeSigma": 0.1
+                    }
+                },
+                {
+                    "sensor_type": "DepthSensor",
+                    "socket": "DepthSocket",
+                    "Hz": 100,
+                    "configuration": {
+                    }
+                },
+                {
+                    "sensor_type": "ImagingSonar",
+                    "location": [0.0, 0.0, 0.0],
+                    "rotation": [0, 0, 0],
+                    "Hz": 2,
+                    "configuration": {
+                        "RangeBins": 512,
+                        "AzimuthBins": 512,
+                        "RangeMin": 0.1,
+                        "RangeMax": 40,
+                        "InitOctreeRange": 40,
+                        "Elevation": 40,
+                        "Azimuth": 120,
+                        "AzimuthStreaks": -1,
+                        "ScaleNoise": false,
+                        "AddSigma": 0,
+                        "MultSigma": 0,
+                        "RangeSigma": 0,
+                        "MultiPath": false,
+                        "ViewRegion": true
+                    }
+                }
+            ],
+            "control_scheme": 0,
+            "location": [-2.0, 26.0, -19.0],
+            "rotation": [0.0, 0.0, 150.0]
+        }
+    ],
+
+    "window_width":  1280,
+    "window_height": 720
+}
